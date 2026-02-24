@@ -1,0 +1,292 @@
+@import "tailwindcss";
+
+@theme {
+  /* Brand Colors */
+  --color-navy: #1E3A5F;
+  --color-navy-dark: #142740;
+  --color-navy-light: #2a4f7f;
+  --color-ember: #E8371B;
+  --color-ember-dark: #c42e15;
+  --color-ember-light: #ff4f2e;
+
+  /* Gold (premium accent) */
+  --color-gold: #F0B429;
+  --color-gold-dark: #d4991f;
+  --color-gold-light: #f9cd5a;
+
+  /* Neutrals */
+  --color-slate-50: #f8fafc;
+  --color-slate-100: #f1f5f9;
+  --color-slate-200: #e2e8f0;
+  --color-slate-300: #cbd5e1;
+  --color-slate-400: #94a3b8;
+  --color-slate-500: #64748b;
+  --color-slate-600: #475569;
+  --color-slate-700: #334155;
+  --color-slate-800: #1e293b;
+  --color-slate-900: #0f172a;
+
+  /* Typography */
+  --font-sans: 'DM Sans', ui-sans-serif, system-ui, sans-serif;
+  --font-display: 'Syne', ui-sans-serif, system-ui, sans-serif;
+
+  /* Spacing */
+  --spacing-section: 6rem;
+  --spacing-section-sm: 4rem;
+}
+
+:root {
+  --background: #ffffff;
+  --foreground: #0f172a;
+}
+
+/* Smooth scroll */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Body */
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Global display font for all headings */
+h1, h2, h3, h4 {
+  font-family: var(--font-display);
+}
+
+/* Scrollbar — ember / gold gradient */
+::-webkit-scrollbar {
+  width: 4px;
+}
+::-webkit-scrollbar-track {
+  background: #0e1a2d;
+}
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(180deg, #E8371B 0%, #F0B429 100%);
+  border-radius: 2px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(180deg, #ff4f2e 0%, #f9cd5a 100%);
+}
+
+/* Focus ring */
+:focus-visible {
+  outline: 2px solid #E8371B;
+  outline-offset: 2px;
+  border-radius: 4px;
+}
+
+/* Prose styles for blog */
+.prose {
+  --tw-prose-body: #334155;
+  --tw-prose-headings: #1E3A5F;
+  --tw-prose-links: #E8371B;
+  --tw-prose-bold: #0f172a;
+  --tw-prose-counters: #64748b;
+  --tw-prose-bullets: #94a3b8;
+  --tw-prose-hr: #e2e8f0;
+  --tw-prose-quotes: #1E3A5F;
+  --tw-prose-quote-borders: #E8371B;
+  --tw-prose-code: #1E3A5F;
+  --tw-prose-pre-bg: #f8fafc;
+}
+
+/* ─── Stats ticker ──────────────────────────────────────── */
+@keyframes ticker {
+  0%   { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+.animate-ticker { animation: ticker 30s linear infinite; }
+.animate-ticker:hover { animation-play-state: paused; }
+
+/* ─── Number counter ────────────────────────────────────── */
+@keyframes countUp {
+  from { opacity: 0; transform: translateY(8px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+/* ─── Hero gradient background ──────────────────────────── */
+.hero-gradient {
+  background: linear-gradient(145deg, #0b1829 0%, #142740 35%, #1E3A5F 65%, #1a3357 100%);
+}
+
+/* ─── Glass card ────────────────────────────────────────── */
+.glass {
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+/* ─── Ember glow ────────────────────────────────────────── */
+.ember-glow {
+  box-shadow: 0 0 30px rgba(232, 55, 27, 0.3);
+}
+
+/* ─── Modal backdrop ────────────────────────────────────── */
+.modal-backdrop {
+  background: rgba(14, 23, 42, 0.85);
+  backdrop-filter: blur(4px);
+}
+
+/* ─── Blob / Aurora animations ──────────────────────────── */
+@keyframes blob {
+  0%, 100% { border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%; }
+  33%       { border-radius: 30% 60% 70% 40% / 50% 60% 30% 60%; }
+  66%       { border-radius: 50% 40% 60% 30% / 40% 70% 50% 60%; }
+}
+.animate-blob { animation: blob 10s ease-in-out infinite; }
+.animation-delay-2000 { animation-delay: 2s; }
+.animation-delay-4000 { animation-delay: 4s; }
+
+/* ─── Float (hero elements, footer logo) ───────────────── */
+@keyframes float-y {
+  0%, 100% { transform: translateY(0px); }
+  50%       { transform: translateY(-10px); }
+}
+.animate-float { animation: float-y 6s ease-in-out infinite; }
+
+/* ─── Ember glow pulse (CTA buttons) ───────────────────── */
+@keyframes glow-pulse {
+  0%, 100% { box-shadow: 0 0 16px rgba(232,55,27,0.35), 0 0 32px rgba(232,55,27,0.15); }
+  50%       { box-shadow: 0 0 28px rgba(232,55,27,0.65), 0 0 56px rgba(232,55,27,0.30); }
+}
+.animate-glow-pulse { animation: glow-pulse 2.5s ease-in-out infinite; }
+
+/* ─── Gold glow pulse ───────────────────────────────────── */
+@keyframes gold-glow-pulse {
+  0%, 100% { box-shadow: 0 0 16px rgba(240,180,41,0.35), 0 0 32px rgba(240,180,41,0.15); }
+  50%       { box-shadow: 0 0 28px rgba(240,180,41,0.65), 0 0 56px rgba(240,180,41,0.30); }
+}
+.animate-gold-glow { animation: gold-glow-pulse 2.5s ease-in-out infinite; }
+
+/* ─── Gradient text (ember) ─────────────────────────────── */
+.gradient-text {
+  background: linear-gradient(135deg, #E8371B 0%, #ff6b3d 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* ─── Gradient text (fire: ember → gold) ───────────────── */
+.gradient-text-fire {
+  background: linear-gradient(135deg, #E8371B 0%, #F0B429 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* ─── Text stroke (decorative large background text) ────── */
+.text-stroke-white {
+  -webkit-text-stroke: 1px rgba(255, 255, 255, 0.07);
+  color: transparent;
+}
+.text-stroke-ember {
+  -webkit-text-stroke: 1px rgba(232, 55, 27, 0.12);
+  color: transparent;
+}
+.text-stroke-navy {
+  -webkit-text-stroke: 2px rgba(30, 58, 95, 0.08);
+  color: transparent;
+}
+
+/* ─── Grid pattern backgrounds ──────────────────────────── */
+.bg-grid-light {
+  background-image:
+    linear-gradient(rgba(30,58,95,0.055) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(30,58,95,0.055) 1px, transparent 1px);
+  background-size: 44px 44px;
+}
+.bg-grid-dark {
+  background-image:
+    linear-gradient(rgba(255,255,255,0.035) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255,255,255,0.035) 1px, transparent 1px);
+  background-size: 44px 44px;
+}
+
+/* ─── Noise texture overlay for dark sections ──────────── */
+.noise {
+  position: relative;
+}
+.noise::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  opacity: 0.016;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='300' height='300' filter='url(%23n)'/%3E%3C/svg%3E");
+  pointer-events: none;
+  border-radius: inherit;
+}
+
+/* ─── Shimmer (loading skeletons) ──────────────────────── */
+@keyframes shimmer {
+  0%   { background-position: -200% 0; }
+  100% { background-position: 200% 0; }
+}
+.animate-shimmer {
+  background: linear-gradient(90deg, #e2e8f0 25%, #f1f5f9 50%, #e2e8f0 75%);
+  background-size: 200% 100%;
+  animation: shimmer 1.5s ease-in-out infinite;
+}
+
+/* ─── Fade-up helper ────────────────────────────────────── */
+@keyframes fade-up {
+  from { opacity: 0; transform: translateY(24px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+/* ─── Clip-path reveal (bottom → top wipe) ─────────────── */
+@keyframes clip-reveal-up {
+  from { clip-path: inset(100% 0% 0% 0%); }
+  to   { clip-path: inset(0% 0% 0% 0%); }
+}
+.animate-clip-reveal {
+  animation: clip-reveal-up 0.7s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+/* ─── Line expand (for decorative dividers) ─────────────── */
+@keyframes line-expand {
+  from { transform: scaleX(0); transform-origin: left; }
+  to   { transform: scaleX(1); transform-origin: left; }
+}
+.animate-line-expand {
+  animation: line-expand 0.8s cubic-bezier(0.22, 1, 0.36, 1) both;
+  transform-origin: left;
+}
+
+/* ─── Timeline draw line ────────────────────────────────── */
+@keyframes draw-line {
+  from { transform: scaleY(0); }
+  to   { transform: scaleY(1); }
+}
+
+/* ─── Spin slow ─────────────────────────────────────────── */
+@keyframes spin-slow {
+  from { transform: rotate(0deg); }
+  to   { transform: rotate(360deg); }
+}
+.animate-spin-slow {
+  animation: spin-slow 20s linear infinite;
+}
+
+/* ─── Spin Y (horizontal flip, left to right) ──────────── */
+@keyframes spin-y {
+  from { transform: rotateY(0deg); }
+  to   { transform: rotateY(360deg); }
+}
+.animate-spin-y {
+  animation: spin-y 2s linear infinite;
+  display: inline-block;
+}
+
+/* ─── Scan line (decorative) ────────────────────────────── */
+@keyframes scan {
+  0%   { transform: translateY(-100%); opacity: 0; }
+  20%  { opacity: 1; }
+  80%  { opacity: 1; }
+  100% { transform: translateY(100vh); opacity: 0; }
+}
