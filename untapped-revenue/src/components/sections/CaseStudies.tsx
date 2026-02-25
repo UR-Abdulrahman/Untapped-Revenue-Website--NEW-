@@ -1,7 +1,9 @@
 'use client'
 
+import { useState, useEffect } from 'react'
 import Link from 'next/link'
-import { motion } from 'framer-motion'
+import Image from 'next/image'
+import { motion, AnimatePresence } from 'framer-motion'
 import Container from '@/components/ui/Container'
 import Badge from '@/components/ui/Badge'
 import { SectionReveal } from '@/components/ui/SectionReveal'
@@ -21,6 +23,14 @@ const accents = [
 
 export default function CaseStudies() {
   const { openBooking } = useModal()
+  const [activeVideo, setActiveVideo] = useState<string | null>(null)
+
+  useEffect(() => {
+    if (!activeVideo) return
+    const onKey = (e: KeyboardEvent) => { if (e.key === 'Escape') setActiveVideo(null) }
+    window.addEventListener('keydown', onKey)
+    return () => window.removeEventListener('keydown', onKey)
+  }, [activeVideo])
 
   return (
     <section
@@ -52,7 +62,7 @@ export default function CaseStudies() {
           {CASE_STUDIES.map((study, i) => (
             <motion.div
               key={study.id}
-              className="relative rounded-2xl flex flex-col"
+              className="relative rounded-2xl flex flex-col overflow-hidden"
               style={{
                 background: 'rgba(255,255,255,0.04)',
                 backdropFilter: 'blur(12px)',
@@ -71,7 +81,7 @@ export default function CaseStudies() {
               {/* Top accent bar */}
               <div
                 className="h-0.75 w-full"
-                style={{ background: `linear-gradient(90deg, ${accents[i].border}, transparent)` }}
+                style={{ background: `linear-gradient(90deg, transparent, ${accents[i].border} 50%, transparent)` }}
               />
 
               {/* Card top glow */}
@@ -81,15 +91,31 @@ export default function CaseStudies() {
                 style={{ background: `radial-gradient(ellipse at 50% 0%, ${accents[i].glow} 0%, transparent 80%)` }}
               />
 
-              {/* Header */}
-              <div className="px-6 pt-6 pb-5 relative z-10">
-                <Badge variant="ember" className="mb-3">{study.studioType}</Badge>
-                <h3 className="text-white font-bold text-xl leading-snug">{study.name}</h3>
-                <p className="text-white/40 text-sm mt-1">{study.timeframe}</p>
+              {/* Header — badge, then photo + name */}
+              <div className="px-4 sm:px-6 pt-5 sm:pt-6 pb-4 sm:pb-5 relative z-10">
+                <Badge variant="ember" className="mb-4">{study.studioType}</Badge>
+                <div className="flex items-center gap-3">
+                  {study.photo && (
+                    <div className="relative shrink-0">
+                      <Image
+                        src={study.photo}
+                        alt={study.name}
+                        width={48}
+                        height={48}
+                        className="rounded-full object-cover w-12 h-12 ring-2 ring-white/15"
+                      />
+                      <span className="absolute bottom-0.5 right-0.5 w-2.5 h-2.5 rounded-full bg-emerald-400 ring-2 ring-navy-dark" />
+                    </div>
+                  )}
+                  <div>
+                    <h3 className="text-white font-bold text-xl leading-snug">{study.name}</h3>
+                    <p className="text-white/40 text-sm">{study.timeframe}</p>
+                  </div>
+                </div>
               </div>
 
               {/* Headline metric — BIG */}
-              <div className="px-6 py-5 border-y border-white/8 relative z-10">
+              <div className="px-4 sm:px-6 py-4 sm:py-5 border-y border-white/8 relative z-10">
                 <p className="text-xs text-white/40 uppercase tracking-wider font-semibold mb-1">Key Result</p>
                 <p className="text-ember font-black text-2xl leading-tight">
                   <AnimatedCounter value={study.headline} className="tabular-nums" />
@@ -97,7 +123,7 @@ export default function CaseStudies() {
               </div>
 
               {/* Metrics */}
-              <div className="px-6 py-5 space-y-3 flex-1 relative z-10">
+              <div className="px-4 sm:px-6 py-4 sm:py-5 space-y-3 flex-1 relative z-10">
                 {study.metrics.map((m, mi) => (
                   <motion.div
                     key={mi}
@@ -115,8 +141,8 @@ export default function CaseStudies() {
                 ))}
               </div>
 
-              {/* Quote */}
-              <div className="px-6 pb-6 pt-4 border-t border-white/8 relative z-10">
+              {/* Quote + Watch Video */}
+              <div className="px-4 sm:px-6 pb-5 sm:pb-6 pt-3 sm:pt-4 border-t border-white/8 relative z-10">
                 <svg className="w-5 h-5 text-ember/60 mb-2" fill="currentColor" viewBox="0 0 24 24">
                   <path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h3.983v10h-9.983z"/>
                 </svg>
@@ -124,6 +150,20 @@ export default function CaseStudies() {
                   {study.quote}
                 </blockquote>
                 <p className="text-white/30 text-xs mt-2">— {study.name}, {study.studioType}</p>
+
+                {study.videoUrl && (
+                  <button
+                    onClick={() => setActiveVideo(study.videoUrl!)}
+                    className="mt-4 flex items-center gap-2 text-ember text-xs font-semibold hover:text-ember/80 transition-colors group"
+                  >
+                    <span className="flex items-center justify-center w-7 h-7 rounded-full bg-ember/15 group-hover:bg-ember/25 transition-colors">
+                      <svg className="w-3 h-3 translate-x-px" fill="currentColor" viewBox="0 0 16 16">
+                        <path d="M5.5 3.5l7 4.5-7 4.5V3.5z"/>
+                      </svg>
+                    </span>
+                    Watch {study.name}&apos;s Story
+                  </button>
+                )}
               </div>
             </motion.div>
           ))}
@@ -158,6 +198,55 @@ export default function CaseStudies() {
           </div>
         </motion.div>
       </Container>
+
+      {/* ── Video Lightbox ── */}
+      <AnimatePresence>
+        {activeVideo && (
+          <motion.div
+            key="video-lightbox"
+            className="fixed inset-0 z-50 flex items-center justify-center p-4"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            transition={{ duration: 0.2 }}
+            onClick={() => setActiveVideo(null)}
+          >
+            {/* Backdrop */}
+            <div className="absolute inset-0 bg-black/85 backdrop-blur-sm" />
+
+            {/* Video container */}
+            <motion.div
+              className="relative z-10 w-full max-w-3xl"
+              initial={{ scale: 0.9, y: 20 }}
+              animate={{ scale: 1, y: 0 }}
+              exit={{ scale: 0.9, y: 20 }}
+              transition={{ duration: 0.25, ease }}
+              onClick={(e) => e.stopPropagation()}
+            >
+              {/* Close button */}
+              <button
+                onClick={() => setActiveVideo(null)}
+                className="absolute -top-4 -right-4 z-20 w-9 h-9 rounded-full bg-white/15 hover:bg-white/25 text-white flex items-center justify-center transition-colors backdrop-blur-sm"
+                aria-label="Close video"
+              >
+                <svg width="14" height="14" viewBox="0 0 14 14" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round">
+                  <path d="M1 1l12 12M13 1L1 13"/>
+                </svg>
+              </button>
+
+              <div className="rounded-2xl overflow-hidden shadow-2xl aspect-video">
+                <video
+                  src={activeVideo}
+                  controls
+                  autoPlay
+                  playsInline
+                  className="w-full h-full object-cover bg-black"
+                />
+              </div>
+            </motion.div>
+          </motion.div>
+        )}
+      </AnimatePresence>
     </section>
   )
 }

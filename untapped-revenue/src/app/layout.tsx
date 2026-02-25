@@ -79,7 +79,7 @@ const organizationSchema = {
   '@type': 'Organization',
   name: BRAND.name,
   url: SITE_URL,
-  logo: `${SITE_URL}/brand/logo.png`,
+  logo: `${SITE_URL}/brand/ur-logo.png`,
   description: BRAND.description,
   contactPoint: {
     '@type': 'ContactPoint',

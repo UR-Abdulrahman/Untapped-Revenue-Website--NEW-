@@ -30,7 +30,7 @@ export default function ResultsPage() {
           {STATS.slice(0, 4).map((stat, i) => (
             <div key={i} className="relative bg-white/10 backdrop-blur-sm border border-white/20 rounded-2xl p-5 text-center">
               <GlowingEffect spread={40} glow={true} disabled={false} proximity={64} inactiveZone={0.01} borderWidth={2} variant="white" />
-              <div className="text-3xl font-black text-ember mb-1">{stat.value}</div>
+              <div className="text-2xl sm:text-3xl font-black text-ember mb-1">{stat.value}</div>
               <div className="text-white/60 text-xs">{stat.label}</div>
             </div>
           ))}
@@ -51,19 +51,19 @@ export default function ResultsPage() {
           </div>
 
           <div className="max-w-3xl mx-auto bg-white rounded-2xl border border-slate-100 shadow-sm overflow-hidden">
-            <div className="grid grid-cols-3 bg-[#1E3A5F] py-3 px-6">
+            <div className="grid grid-cols-3 bg-[#1E3A5F] py-3 px-3 sm:px-6">
               <div className="text-white/60 text-xs font-semibold uppercase tracking-wider">Metric</div>
-              <div className="text-white/60 text-xs font-semibold uppercase tracking-wider text-center">Our Target</div>
-              <div className="text-white/60 text-xs font-semibold uppercase tracking-wider text-right">Context</div>
+              <div className="text-white/60 text-xs font-semibold uppercase tracking-wider text-center">Target</div>
+              <div className="text-white/60 text-xs font-semibold uppercase tracking-wider text-right hidden sm:block">Context</div>
             </div>
             {KPI_BENCHMARKS.map((kpi, i) => (
               <div
                 key={i}
-                className={`grid grid-cols-3 py-4 px-6 items-center ${i % 2 === 0 ? 'bg-slate-50/50' : 'bg-white'} border-b border-slate-100`}
+                className={`grid grid-cols-3 py-3 sm:py-4 px-3 sm:px-6 items-center ${i % 2 === 0 ? 'bg-slate-50/50' : 'bg-white'} border-b border-slate-100`}
               >
-                <div className="text-[#1E3A5F] font-semibold text-sm">{kpi.metric}</div>
-                <div className="text-[#E8371B] font-black text-lg text-center">{kpi.target}</div>
-                <div className="text-slate-400 text-xs text-right">{kpi.note}</div>
+                <div className="text-[#1E3A5F] font-semibold text-xs sm:text-sm">{kpi.metric}</div>
+                <div className="text-[#E8371B] font-black text-base sm:text-lg text-center">{kpi.target}</div>
+                <div className="text-slate-400 text-xs text-right hidden sm:block">{kpi.note}</div>
               </div>
             ))}
           </div>
@@ -87,7 +87,7 @@ export default function ResultsPage() {
                 <div className={`overflow-hidden rounded-2xl flex flex-col ${
                   i % 2 === 0 ? 'md:flex-row' : 'md:flex-row-reverse'
                 }`}>
-                  <div className="bg-navy p-8 md:w-2/5 flex flex-col justify-between">
+                  <div className="bg-navy p-5 md:p-8 md:w-2/5 flex flex-col justify-between">
                     <div>
                       <Badge variant="ember" className="mb-3">{study.studioType}</Badge>
                       <h3 className="text-white font-black text-2xl mb-1">{study.name}</h3>
@@ -100,7 +100,7 @@ export default function ResultsPage() {
                     </blockquote>
                   </div>
 
-                  <div className="bg-white p-8 md:w-3/5">
+                  <div className="bg-white p-5 md:p-8 md:w-3/5">
                     <div className="grid grid-cols-2 gap-4 h-full content-center">
                       {study.metrics.map((m, j) => (
                         <div key={j} className="relative bg-slate-50 rounded-xl p-4 border border-slate-100">

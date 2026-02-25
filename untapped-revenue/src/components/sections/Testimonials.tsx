@@ -1,6 +1,7 @@
 'use client'
 
 import Link from 'next/link'
+import Image from 'next/image'
 import { motion } from 'framer-motion'
 import { TESTIMONIALS } from '@/config/site'
 import { GlowingEffect } from '@/components/ui/glowing-effect'
@@ -67,10 +68,20 @@ export default function Testimonials({
               </blockquote>
 
               <div className="border-t border-slate-100 pt-4 flex items-center gap-3">
-                {/* Avatar initial */}
-                <div className="w-9 h-9 rounded-full bg-[#1E3A5F] flex items-center justify-center shrink-0">
-                  <span className="text-white font-bold text-sm">{t.name.charAt(0)}</span>
-                </div>
+                {/* Avatar — photo if available, else initial */}
+                {'photo' in t && t.photo ? (
+                  <Image
+                    src={t.photo as string}
+                    alt={t.name}
+                    width={36}
+                    height={36}
+                    className="w-9 h-9 rounded-full object-cover ring-2 ring-slate-100 shrink-0"
+                  />
+                ) : (
+                  <div className="w-9 h-9 rounded-full bg-navy flex items-center justify-center shrink-0">
+                    <span className="text-white font-bold text-sm">{t.name.charAt(0)}</span>
+                  </div>
+                )}
                 <div>
                   <div className="text-[#1E3A5F] font-bold text-sm leading-tight">{t.name}</div>
                   <div className="text-slate-400 text-xs">{t.role}</div>
@@ -93,7 +104,7 @@ export default function Testimonials({
               href="/results"
               className="inline-flex items-center gap-2 text-[#1E3A5F] font-semibold text-sm hover:text-ember transition-colors"
             >
-              See all case studies & testimonials
+              See other case studies & testimonials
               <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
                 <path strokeLinecap="round" strokeLinejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3" />
               </svg>

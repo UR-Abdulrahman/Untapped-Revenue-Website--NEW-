@@ -51,9 +51,9 @@ export const STATS = [
 
 // ── KPI Benchmarks ────────────────────────────────────────
 export const KPI_BENCHMARKS = [
-  { metric: 'Response Rate', target: '80%+', note: '' },
-  { metric: 'Booking Rate', target: '65%+', note: '' },
-  { metric: 'Show-Up Rate', target: '80%+', note: '' },
+  { metric: 'Response Rate', target: '80%+', note: 'vs. 50% industry avg.' },
+  { metric: 'Booking Rate', target: '65%+', note: 'vs. 30% industry avg.' },
+  { metric: 'Show-Up Rate', target: '80%+', note: 'vs. 40% industry avg.' },
   { metric: 'Trial-to-Membership Conversion', target: '30–40%', note: 'vs. 20% industry avg.' },
   { metric: 'Cost Per Lead', target: '~$10', note: 'vs. $15–$30 industry avg.' },
   { metric: 'Lead Follow-Up Speed', target: '1–10 min', note: '#1 driver of conversion' },
@@ -75,6 +75,8 @@ export const CASE_STUDIES = [
     quote:
       "We were looking for a whole whack of new people in our doors and that's exactly what happened! We started at 122 members and are now at 192 members.",
     category: 'fitness',
+    photo: '/brand/clients/shawna.png',
+    videoUrl: 'https://assets.cdn.filesafe.space/O6Vdh0xyR6yPRKM3SLpT/media/65a97c0798a1bea63d1867b6.mp4',
   },
   {
     id: 'dan',
@@ -90,6 +92,8 @@ export const CASE_STUDIES = [
     quote:
       'Within the first month of switching over to Untapped Revenue I generated 163 trialers and converted over 50% onto membership.',
     category: 'yoga',
+    photo: '/brand/clients/Dan.png',
+    videoUrl: 'https://assets.cdn.filesafe.space/O6Vdh0xyR6yPRKM3SLpT/media/668581525dc9e3f346df6b2a.mp4',
   },
   {
     id: 'hailey',
@@ -104,6 +108,8 @@ export const CASE_STUDIES = [
     quote:
       'Within the first month I had 190 new bodies in my doors and 30 new members. My favorite part is how they take the workload off my hands — ads, follow-up, and booking first-time visitors.',
     category: 'fitness',
+    photo: '/brand/clients/Hailey.png',
+    videoUrl: 'https://assets.cdn.filesafe.space/O6Vdh0xyR6yPRKM3SLpT/media/65a9765e1b3b1a38a616c7a8.mp4',
   },
 ]
 
@@ -114,36 +120,42 @@ export const TESTIMONIALS = [
     role: 'Gym Owner',
     quote:
       'Each summer month with Untapped has brought 100+ new paid trialers—June, July, and August.',
+    photo: '/brand/clients/Kerry.png',
   },
   {
     name: 'Kim',
     role: 'Studio Owner',
     quote:
       '145 first visits in July and our revenue is up 190% from this time last year! Thank you. Please keep that coming and even more for the fall!',
+    photo: '/brand/clients/Kim.png',
   },
   {
     name: 'Elliott',
     role: 'Studio Owner',
     quote:
       'Next rep we did 117 new clients, and 156 at Deprivation. Generally at about $499 a pop. Next rep we brought in $49,220.87 between mid-December and February 28th, and Deprivation did $119,647.40.',
+    photo: '/brand/clients/Elliott.png',
   },
   {
     name: 'Victor Bhatia',
     role: 'Fitness Studio Owner',
     quote:
       'Since partnering with Untapped, our new-client flow is 3–4× what it was, April was our best sales month ever, and a review push added 200+ mostly five-star Google reviews.',
+    photo: '/brand/clients/Victor.png',
   },
   {
     name: 'Sherry Bureau',
     role: 'Gym Owner',
     quote:
       'Three months after switching to Untapped, we added 100 new members and doubled autopays past 200. They are unreal at what they do!',
+    photo: '/brand/clients/Sherry.png',
   },
   {
     name: 'Hailey De Lisser',
     role: 'Gym Owner',
     quote:
       'Month one with Untapped: 190 trials and 30 new members, while they handled ads, follow-up, and booking.',
+    photo: '/brand/clients/Hailey.png',
   },
 ]
 
@@ -212,9 +224,9 @@ export const SERVICE_TIERS = [
     id: 'ai-followup',
     name: '+ AI Follow-Up',
     tagline: 'Base + Automated Lead Response',
-    priceLabel: '$297/mo USD · $447/mo CAD',
-    priceUSD: '$297',
-    priceCAD: '$447',
+    priceLabel: '$100/mo USD · $150/mo CAD',
+    priceUSD: '$100',
+    priceCAD: '$150',
     popular: false,
     features: [
       'Everything in Base Service',
@@ -231,9 +243,9 @@ export const SERVICE_TIERS = [
     id: 'fb-ig-ads',
     name: 'FB/IG Ads',
     tagline: 'Complete Done-For-You System ⭐',
-    priceLabel: '$600/mo USD · $700/mo CAD',
-    priceUSD: '$600',
-    priceCAD: '$700',
+    priceLabel: '$300/mo USD · $400/mo CAD',
+    priceUSD: '$300',
+    priceCAD: '$400',
     popular: true,
     features: [
       'Everything in Base + AI Follow-Up',
@@ -252,9 +264,9 @@ export const SERVICE_TIERS = [
     id: 'google-ads',
     name: '+ Google Ads',
     tagline: 'Multi-Channel Domination',
-    priceLabel: '$900/mo USD · $1,100/mo CAD',
-    priceUSD: '$900',
-    priceCAD: '$1,100',
+    priceLabel: '$300/mo USD · $400/mo CAD',
+    priceUSD: '$300',
+    priceCAD: '$400',
     popular: false,
     features: [
       'Everything in FB/IG Ads tier',
@@ -332,14 +344,14 @@ export const HOW_IT_WORKS = [
   {
     step: 2,
     title: 'Website Build & System Setup',
-    timeframe: 'Days 1–14',
+    timeframe: 'Days 1–3',
     description:
-      'We build your GoHighLevel website from scratch — fully branded, SEO-optimized, and integrated with your CRM and follow-up automations. You review, approve, and we go live. Your digital infrastructure is now built to convert visitors into leads and leads into members.',
+      'We build your website from scratch — fully branded, SEO-optimized, and integrated with your CRM and follow-up automations. You review, approve, and we go live. Your digital infrastructure is now built to convert visitors into leads and leads into members.',
   },
   {
     step: 3,
     title: 'Offer Testing & Ad Launch',
-    timeframe: '48–72 Hours to First Winner',
+    timeframe: '24-48 Hours to First Winner',
     description:
       'We run our sprint testing system: 15–20 color block offer variations tested simultaneously for approximately $30 total. Within 48–72 hours we know exactly which offer your local market responds to. That winner becomes the foundation of your lead generation campaign.',
   },
@@ -347,7 +359,7 @@ export const HOW_IT_WORKS = [
     step: 4,
     title: 'AI Follow-Up Handles the Conversations',
     description:
-      'The moment a lead opts in, our AI-powered system responds within 60 seconds. It asks qualifying questions, handles objections, offers class times, and books the appointment directly into your calendar — all without you lifting a finger.',
+      'The moment a lead opts in, our AI-powered system responds within 60 seconds. It asks qualifying questions, handles objections, offers class times, and books the appointment directly into your calendar — all without you lifting a finger. In head-to-head testing against a human follow-up team, it delivered 10–15% more bookings.',
   },
   {
     step: 5,
@@ -425,7 +437,6 @@ export const IDEAL_CLIENT = {
   ],
   weDontWorkWith: [
     'Brand-new studios with fewer than 50 members or under $10K monthly revenue',
-    'Big-box gyms and franchises with in-house marketing teams (franchise partnership agreements are available — ask on the call)',
     'Personal trainers or solo operators without a physical studio location',
     'Any fitness business outside the class-based studio model',
   ],

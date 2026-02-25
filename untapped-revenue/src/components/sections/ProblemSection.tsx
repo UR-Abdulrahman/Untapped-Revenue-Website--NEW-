@@ -85,7 +85,7 @@ export default function ProblemSection() {
           {problems.map((problem, i) => (
             <motion.div
               key={i}
-              className="group relative bg-white rounded-2xl border border-slate-100 shadow-sm"
+              className="group relative bg-white rounded-2xl border border-slate-100 shadow-sm overflow-hidden"
               initial={{ opacity: 0, y: 48 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: '-60px' }}
@@ -96,7 +96,9 @@ export default function ProblemSection() {
               }}
             >
               <GlowingEffect spread={40} glow={true} disabled={false} proximity={64} inactiveZone={0.01} borderWidth={2} />
-              <div className="relative overflow-hidden rounded-2xl p-7">
+              {/* Ember left accent bar on hover — spans full card height */}
+              <div className="absolute left-0 top-0 bottom-0 w-1 bg-ember/0 group-hover:bg-ember/70 transition-all duration-300 z-10" />
+              <div className="relative overflow-hidden rounded-2xl p-5 sm:p-7">
                 {/* Ghost number — large background text */}
                 <span
                   aria-hidden
@@ -105,9 +107,6 @@ export default function ProblemSection() {
                 >
                   {problem.num}
                 </span>
-
-                {/* Ember left accent bar on hover */}
-                <div className="absolute left-0 top-0 bottom-0 w-1 rounded-l-2xl bg-ember/0 group-hover:bg-ember/70 transition-all duration-300" />
 
                 {/* Icon */}
                 <motion.div

@@ -34,9 +34,9 @@ export default function HowItWorksPage() {
         <Container>
           <div className="max-w-3xl mx-auto">
             {HOW_IT_WORKS.map((step, i) => (
-              <div key={step.step} className="flex gap-6 mb-10 last:mb-0">
+              <div key={step.step} className="flex gap-4 sm:gap-6 mb-10 last:mb-0">
                 <div className="flex flex-col items-center">
-                  <div className="w-14 h-14 rounded-full bg-[#1E3A5F] text-white font-black text-xl flex items-center justify-center shadow-lg flex-shrink-0">
+                  <div className="w-10 h-10 sm:w-14 sm:h-14 rounded-full bg-navy text-white font-black text-base sm:text-xl flex items-center justify-center shadow-lg shrink-0">
                     {step.step}
                   </div>
                   {i < HOW_IT_WORKS.length - 1 && (
@@ -46,7 +46,7 @@ export default function HowItWorksPage() {
 
                 <div className="flex-1 pb-2">
                   <div className="flex items-start gap-3 flex-wrap mb-2">
-                    <h2 className="text-[#1E3A5F] font-black text-2xl">{step.title}</h2>
+                    <h2 className="text-[#1E3A5F] font-black text-xl sm:text-2xl">{step.title}</h2>
                     {step.timeframe && (
                       <span className="bg-[#E8371B]/10 text-[#E8371B] text-xs font-bold uppercase tracking-wider px-3 py-1 rounded-full mt-1">
                         {step.timeframe}

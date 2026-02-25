@@ -7,40 +7,6 @@ import Container from '@/components/ui/Container'
 
 const HeroCanvas = lazy(() => import('./HeroCanvas'))
 
-/** Split text into individual character spans with stagger */
-function SplitChars({
-  text,
-  className,
-  delay = 0,
-}: {
-  text: string
-  className?: string
-  delay?: number
-}) {
-  return (
-    <>
-      {text.split('').map((char, i) => (
-        <motion.span
-          key={i}
-          className={className}
-          style={{ display: 'inline-block', whiteSpace: char === ' ' ? 'pre' : undefined }}
-          variants={{
-            hidden: { opacity: 0, y: 40, rotateX: -30 },
-            visible: { opacity: 1, y: 0, rotateX: 0 },
-          }}
-          transition={{
-            duration: 0.45,
-            ease: [0.22, 1, 0.36, 1],
-            delay: delay + i * 0.022,
-          }}
-        >
-          {char}
-        </motion.span>
-      ))}
-    </>
-  )
-}
-
 /** Word-by-word spans for less dense lines */
 function AnimatedWords({
   text,
@@ -140,7 +106,7 @@ export default function Hero() {
 
             {/* Headline — character-by-character on "Member Accelerator" */}
             <motion.h1
-              className="text-5xl sm:text-6xl lg:text-7xl xl:text-8xl font-black text-white leading-[1.02] mb-6"
+              className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-black text-white leading-[1.02] mb-6"
               initial="hidden"
               animate="visible"
               style={{ perspective: 800 }}
@@ -228,12 +194,12 @@ export default function Hero() {
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ duration: 1, delay: 1.1 }}
-              className="mt-12 flex flex-wrap justify-center gap-5 text-white/50 text-sm"
+              className="mt-12 flex flex-wrap justify-center gap-3 sm:gap-5 text-white/50 text-sm"
             >
               {[
                 'No long-term contracts',
                 'Fitness-exclusive expertise',
-                '25+ new bookings/month guaranteed',
+                '150+ Gyms trust us',
               ].map((item) => (
                 <span key={item} className="flex items-center gap-1.5">
                   <svg className="w-4 h-4 text-ember shrink-0" fill="currentColor" viewBox="0 0 20 20">

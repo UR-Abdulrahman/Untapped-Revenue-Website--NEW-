@@ -40,17 +40,16 @@ const doesntDo = [
   'Custom email sequences',
   'Communication with your active members or trialers',
   'Custom landing page funnels (available as $300 one-time add-on)',
-  'Mindbody/Zenplanner integration management (available in franchise model)',
 ]
 
 const Check = () => (
   <svg className="w-5 h-5 text-[#E8371B] mx-auto" fill="currentColor" viewBox="0 0 20 20">
-    <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd"/>
+    <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
   </svg>
 )
 const X = () => (
   <svg className="w-4 h-4 text-slate-300 mx-auto" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
-    <path strokeLinecap="round" strokeLinejoin="round" d="M6 18L18 6M6 6l12 12"/>
+    <path strokeLinecap="round" strokeLinejoin="round" d="M6 18L18 6M6 6l12 12" />
   </svg>
 )
 
@@ -78,7 +77,7 @@ export default function ServicesPage() {
             </p>
           </div>
 
-          <div className="relative max-w-2xl mx-auto bg-white rounded-2xl border-2 border-navy p-8 shadow-lg">
+          <div className="relative max-w-2xl mx-auto bg-white rounded-2xl border-2 border-navy p-5 sm:p-8 shadow-lg">
             <GlowingEffect spread={40} glow={true} disabled={false} proximity={64} inactiveZone={0.01} borderWidth={2} />
             <div className="flex items-center justify-between mb-6">
               <div>
@@ -86,8 +85,8 @@ export default function ServicesPage() {
                 <p className="text-slate-500">One-time investment</p>
               </div>
               <div className="text-right">
-                <div className="text-3xl font-black text-[#E8371B]">$997–$1,500</div>
-                <div className="text-slate-400 text-sm">USD one-time</div>
+                <div className="text-3xl font-black text-[#E8371B]">FREE!!</div>
+
               </div>
             </div>
 
@@ -104,7 +103,7 @@ export default function ServicesPage() {
               ].map((item, i) => (
                 <div key={i} className="flex items-center gap-2 text-sm text-slate-600">
                   <svg className="w-4 h-4 text-[#E8371B] flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
-                    <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd"/>
+                    <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
                   </svg>
                   {item}
                 </div>
@@ -129,16 +128,16 @@ export default function ServicesPage() {
             <Badge variant="navy" className="mb-4">Investment Overview</Badge>
             <h2 className="text-4xl font-black text-navy mb-3">What to Expect to Invest</h2>
             <p className="text-slate-500 text-lg max-w-xl mx-auto">
-              Every plan starts with the one-time website build, then add services as you grow.
+              Simple, transparent pricing. Add services as you grow.
             </p>
           </div>
 
-          <div className="overflow-x-auto">
-            <table className="w-full min-w-160 text-sm">
+          <p className="text-slate-400 text-xs text-right mb-1 sm:hidden">← Scroll to see all columns</p>
+          <div className="overflow-x-auto -mx-4 sm:mx-0 px-4 sm:px-0">
+            <table className="w-full min-w-140 text-sm">
               <thead>
                 <tr className="bg-navy text-white">
                   <th className="text-left py-3.5 px-5 font-semibold rounded-tl-xl">Scenario</th>
-                  <th className="text-center py-3.5 px-4 font-semibold">One-Time Setup</th>
                   <th className="text-center py-3.5 px-4 font-semibold">Monthly (USD)</th>
                   <th className="text-center py-3.5 px-4 font-semibold">Monthly (CAD)</th>
                   <th className="text-center py-3.5 px-4 font-semibold rounded-tr-xl">Est. Annual Total (USD)</th>
@@ -146,25 +145,23 @@ export default function ServicesPage() {
               </thead>
               <tbody>
                 {[
-                  { scenario: 'Website & CRM Only', setup: '$997–$1,500', usd: '$197', cad: '$297', annual: '~$3,861' },
-                  { scenario: '+ AI Follow-Up System', setup: '$997–$1,500', usd: '$297', cad: '$447', annual: '~$5,061' },
-                  { scenario: 'Complete Social System (FB/IG Ads)', setup: '$997–$1,500', usd: '$600', cad: '$700', annual: '~$8,697', popular: true },
-                  { scenario: 'Multi-Channel (FB/IG + Google)', setup: '$997–$1,500', usd: '$900', cad: '$1,100', annual: '~$12,297' },
-                  { scenario: 'Franchise / Full-Service', setup: '$997–$1,500', usd: '$997', cad: '$1,300', annual: '~$13,461' },
+                  { scenario: 'Website & CRM Only', usd: '$197', cad: '$297', annual: '~$2,364' },
+                  { scenario: '+ AI Follow-Up System', usd: '$100', cad: '$150', annual: '~$1,200' },
+                  { scenario: 'Complete Social System (FB/IG Ads)', usd: '$300', cad: '$400', annual: '~$3,600', popular: true },
+                  { scenario: 'Multi-Channel (FB/IG + Google)', usd: '$300', cad: '$400', annual: '~$3,600' },
+                  { scenario: 'Franchise / Full-Service', usd: '$997', cad: '$1,300', annual: '~$11,964' },
                 ].map((row, i) => (
                   <tr
                     key={i}
-                    className={`border-b border-slate-100 ${
-                      row.popular
-                        ? 'bg-ember/5 font-semibold'
-                        : i % 2 === 0 ? 'bg-white' : 'bg-slate-50/60'
-                    }`}
+                    className={`border-b border-slate-100 ${row.popular
+                      ? 'bg-ember/5 font-semibold'
+                      : i % 2 === 0 ? 'bg-white' : 'bg-slate-50/60'
+                      }`}
                   >
                     <td className="py-3.5 px-5 text-navy font-semibold">
                       {row.popular && <span className="animate-spin-y mr-1.5">⭐</span>}
                       {row.scenario}
                     </td>
-                    <td className="py-3.5 px-4 text-center text-slate-600">{row.setup}</td>
                     <td className={`py-3.5 px-4 text-center font-bold ${row.popular ? 'text-ember' : 'text-navy'}`}>{row.usd}</td>
                     <td className="py-3.5 px-4 text-center text-slate-500">{row.cad}</td>
                     <td className="py-3.5 px-4 text-center text-slate-600">{row.annual}</td>
@@ -174,7 +171,7 @@ export default function ServicesPage() {
             </table>
           </div>
           <p className="text-center text-slate-400 text-xs mt-4">
-            Annual totals include one-time setup at midpoint ($1,250) + 12 months of monthly fees. Month-to-month, no long-term contracts.
+            Annual totals based on 12 months of monthly fees. Month-to-month, no long-term contracts.
           </p>
         </Container>
       </Section>
@@ -187,8 +184,9 @@ export default function ServicesPage() {
             <p className="text-slate-500">See exactly what&apos;s included in each tier.</p>
           </div>
 
-          <div className="overflow-x-auto">
-            <table className="w-full min-w-[600px]">
+          <p className="text-slate-400 text-xs text-right mb-1 sm:hidden">← Scroll to see all tiers</p>
+          <div className="overflow-x-auto -mx-4 sm:mx-0 px-4 sm:px-0">
+            <table className="w-full min-w-150">
               <thead>
                 <tr className="border-b-2 border-[#1E3A5F]">
                   <th className="text-left py-3 pr-4 text-[#1E3A5F] font-bold text-sm">Feature</th>
@@ -232,7 +230,7 @@ export default function ServicesPage() {
               <div className="flex items-center gap-2 mb-5">
                 <span className="w-8 h-8 rounded-full bg-emerald-50 flex items-center justify-center">
                   <svg className="w-4 h-4 text-emerald-500" fill="currentColor" viewBox="0 0 20 20">
-                    <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd"/>
+                    <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
                   </svg>
                 </span>
                 <h3 className="text-navy font-bold text-lg">We Work With</h3>
@@ -241,7 +239,7 @@ export default function ServicesPage() {
                 {IDEAL_CLIENT.weWorkWith.map((item, i) => (
                   <li key={i} className="flex items-start gap-2.5 text-sm text-slate-600">
                     <svg className="w-4 h-4 text-emerald-500 mt-0.5 shrink-0" fill="currentColor" viewBox="0 0 20 20">
-                      <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd"/>
+                      <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
                     </svg>
                     {item}
                   </li>
@@ -255,7 +253,7 @@ export default function ServicesPage() {
               <div className="flex items-center gap-2 mb-5">
                 <span className="w-8 h-8 rounded-full bg-red-50 flex items-center justify-center">
                   <svg className="w-4 h-4 text-red-400" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
-                    <path strokeLinecap="round" strokeLinejoin="round" d="M6 18L18 6M6 6l12 12"/>
+                    <path strokeLinecap="round" strokeLinejoin="round" d="M6 18L18 6M6 6l12 12" />
                   </svg>
                 </span>
                 <h3 className="text-navy font-bold text-lg">We Don&apos;t Work With</h3>
@@ -264,7 +262,7 @@ export default function ServicesPage() {
                 {IDEAL_CLIENT.weDontWorkWith.map((item, i) => (
                   <li key={i} className="flex items-start gap-2.5 text-sm text-slate-600">
                     <svg className="w-4 h-4 text-red-400 mt-0.5 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
-                      <path strokeLinecap="round" strokeLinejoin="round" d="M6 18L18 6M6 6l12 12"/>
+                      <path strokeLinecap="round" strokeLinejoin="round" d="M6 18L18 6M6 6l12 12" />
                     </svg>
                     {item}
                   </li>
@@ -312,7 +310,6 @@ export default function ServicesPage() {
                   ))}
                 </div>
                 <div className="text-ember font-black text-xl">$997/mo USD · $1,300/mo CAD</div>
-                <div className="text-white/40 text-xs mt-1">+ one-time website build per location</div>
               </div>
               <div className="shrink-0">
                 <BookingCTA label="Talk to Us About Franchise" size="lg" />
@@ -337,7 +334,7 @@ export default function ServicesPage() {
               <div key={i} className="relative flex items-start gap-3 bg-white/5 border border-white/10 rounded-xl px-5 py-3.5">
                 <GlowingEffect spread={40} glow={true} disabled={false} proximity={64} inactiveZone={0.01} borderWidth={2} variant="white" />
                 <svg className="w-4 h-4 text-white/30 mt-0.5 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
-                  <path strokeLinecap="round" strokeLinejoin="round" d="M6 18L18 6M6 6l12 12"/>
+                  <path strokeLinecap="round" strokeLinejoin="round" d="M6 18L18 6M6 6l12 12" />
                 </svg>
                 <span className="text-white/60 text-sm">{item}</span>
               </div>

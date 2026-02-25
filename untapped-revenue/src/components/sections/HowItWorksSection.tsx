@@ -54,7 +54,7 @@ export default function HowItWorksSection() {
                   className={`relative flex gap-5 ${isLeft ? 'lg:text-right lg:flex-row-reverse' : ''}`}
                   initial={{ opacity: 0, x: isLeft ? -60 : 60 }}
                   whileInView={{ opacity: 1, x: 0 }}
-                  viewport={{ once: true, margin: '-60px' }}
+                  viewport={{ once: true, amount: 0.1 }}
                   transition={{ duration: 0.65, ease, delay }}
                 >
                   {/* Step circle with ghost number behind it */}
@@ -62,7 +62,7 @@ export default function HowItWorksSection() {
                     className="shrink-0 relative"
                     initial={{ scale: 0, rotate: -90 }}
                     whileInView={{ scale: 1, rotate: 0 }}
-                    viewport={{ once: true, margin: '-60px' }}
+                    viewport={{ once: true, amount: 0.1 }}
                     transition={{
                       type: 'spring',
                       stiffness: 220,
@@ -75,7 +75,7 @@ export default function HowItWorksSection() {
                       className="absolute inset-0 rounded-full bg-ember/20"
                       initial={{ scale: 1, opacity: 0.6 }}
                       whileInView={{ scale: 1.8, opacity: 0 }}
-                      viewport={{ once: true }}
+                      viewport={{ once: true, amount: 0.1 }}
                       transition={{ duration: 1, ease: 'easeOut', delay: delay + 0.35 }}
                     />
                     {/* Circle */}

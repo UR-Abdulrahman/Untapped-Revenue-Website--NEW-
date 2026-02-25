@@ -15,16 +15,63 @@ export const metadata: Metadata = {
   alternates: { canonical: '/about' },
 }
 
-// TODO: Replace with actual team member data from Alec
-const team = [
+type TeamMember = {
+  initial: string
+  photo?: string
+  imgPosition?: string
+  photos?: { src: string; name: string }[]
+  name: string
+  role: string
+  bio: string
+}
+
+const team: TeamMember[] = [
   {
+    initial: 'A',
+    photo: '/brand/team/Alec.png',
     name: 'Alec',
-    role: 'Founder & CEO',
-    bio: '8 years managing fitness marketing. Directed millions in ad spend across 100+ class-based fitness studios. Built the sprint testing and algorithmic bias systems from the ground up.',
+    role: 'Co-Founder & CEO',
+    bio: "Alec leads sales and marketing at Untapped Revenue. With 8+ years in fitness studio marketing and client success, he's helped shape our ad strategies, delivery systems, and the GoHighLevel framework that powers our client results.",
   },
-  { name: 'TODO', role: 'Client Success', bio: '// TODO: Add bio from Alec' },
-  { name: 'TODO', role: 'Lead Designer', bio: '// TODO: Add bio from Alec' },
-  { name: 'TODO', role: 'Operations', bio: '// TODO: Add bio from Alec' },
+  {
+    initial: 'D',
+    photo: '/brand/team/Derek.jpg',
+    name: 'Derek Vervoorn',
+    role: 'Co-Founder & Operations Lead',
+    bio: "Derek leads operations and delivery. He's focused on building reliable systems, improving execution quality, and ensuring clients get consistent results at scale.",
+  },
+  {
+    initial: 'MS',
+    photo: '/brand/team/Mary.png',
+    name: 'Mary Smith',
+    role: 'Operations & Admin',
+    bio: 'Internal operations and coordination\u2014process clarity, reporting support, and keeping delivery workflows running smoothly.',
+  },
+  {
+    initial: 'CW',
+    photo: '/brand/team/Cheryl.jpg',
+    name: 'Cheryl Wan',
+    role: 'Client Success Manager',
+    bio: 'Client support and success\u2014keeping studios on track, improving communication, and making sure deliverables stay organized and moving.',
+  },
+  {
+    initial: 'AO',
+    photos: [
+      { src: '/brand/team/Jason.jpg', name: 'Jason Debruyn' },
+      { src: '/brand/team/Jordon.jpg', name: 'Jordan Morris' },
+    ],
+    name: 'Jason Debruyn & Jordan Morris',
+    role: 'Ads Operations',
+    bio: 'Campaign execution and optimization\u2014managing paid media performance, reporting, and ongoing improvements across accounts.',
+  },
+  {
+    initial: 'AH',
+    photo: '/brand/team/Me.jpg',
+    imgPosition: 'top',
+    name: 'Abdulrahman Halabi',
+    role: 'AI Automation Specialist',
+    bio: 'Abdulrahman creates AI automation solutions and systems\u2014building workflows that connect tools and reduce manual work\u2014while also building high-performing websites.',
+  },
 ]
 
 export default function AboutPage() {
@@ -40,7 +87,7 @@ export default function AboutPage() {
       {/* Founder section */}
       <Section>
         <Container>
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-16 items-center">
             <div>
               <Badge variant="ember" className="mb-4">Founder</Badge>
               <h2 className="text-4xl font-black text-navy mb-6">
@@ -48,10 +95,10 @@ export default function AboutPage() {
               </h2>
               <div className="space-y-4 text-slate-600 leading-relaxed">
                 <p>
-                  Alec founded Untapped Revenue after 8 years managing marketing for fitness studios — directing millions of dollars in ad spend and watching firsthand how generic agencies repeatedly failed the studios they were supposed to be helping.
+                  Alec founded Untapped Revenue after 8 years managing marketing for fitness studios &mdash; directing millions of dollars in ad spend and watching firsthand how generic agencies repeatedly failed the studios they were supposed to be helping.
                 </p>
                 <p>
-                  The pattern was always the same: an agency serving 12 different industries would apply a recycled playbook to a yoga studio or CrossFit gym. The ads would generate leads for 2–3 weeks, then collapse. The agency would blame the market. The studio owner would cancel and try someone else.
+                  The pattern was always the same: an agency serving 12 different industries would apply a recycled playbook to a yoga studio or CrossFit gym. The ads would generate leads for 2&ndash;3 weeks, then collapse. The agency would blame the market. The studio owner would cancel and try someone else.
                 </p>
                 <p>
                   Untapped Revenue was built to solve that problem at the root: with systems engineered specifically for how fitness studios acquire, convert, and retain members.
@@ -87,8 +134,8 @@ export default function AboutPage() {
         <Container narrow>
           <div className="text-center">
             <Badge variant="ember" className="mb-4">Our Mission</Badge>
-            <blockquote className="text-3xl sm:text-4xl font-black text-white leading-tight">
-              &ldquo;Help 200 gym and fitness studio owners double their memberships while giving them back their time — so they can stop wearing every hat in their business and start running it like a real company.&rdquo;
+            <blockquote className="text-xl sm:text-2xl lg:text-3xl xl:text-4xl font-black text-white leading-tight">
+              &ldquo;Help 200 gym and fitness studio owners double their memberships while giving them back their time &mdash; so they can stop wearing every hat in their business and start running it like a real company.&rdquo;
             </blockquote>
           </div>
         </Container>
@@ -97,7 +144,7 @@ export default function AboutPage() {
       {/* Why fitness-only */}
       <Section>
         <Container>
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-16 items-center">
             <div className="space-y-4">
               <Badge variant="navy" className="mb-2">Why Fitness-Only?</Badge>
               <h2 className="text-4xl font-black text-navy mb-4">
@@ -107,7 +154,7 @@ export default function AboutPage() {
                 Generalist agencies serving 12 different industries will never understand your business the way we do. We know your seasonality, common objections, membership pricing models, trial conversion benchmarks, and MindBody/Zenplanner integrations.
               </p>
               <p className="text-slate-600 leading-relaxed">
-                Every script, every automation, every ad template, every reporting framework — built specifically for one industry. That depth is why our clients&apos; results improve month over month.
+                Every script, every automation, every ad template, every reporting framework &mdash; built specifically for one industry. That depth is why our clients&apos; results improve month over month.
               </p>
             </div>
 
@@ -133,13 +180,38 @@ export default function AboutPage() {
             <Badge variant="ember" className="mb-4">The Team</Badge>
             <h2 className="text-4xl font-black text-navy mb-4">Who&apos;s Behind the System</h2>
           </div>
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
             {team.map((member, i) => (
               <div key={i} className="relative bg-white rounded-2xl border border-slate-100 shadow-sm p-6">
                 <GlowingEffect spread={40} glow={true} disabled={false} proximity={64} inactiveZone={0.01} borderWidth={2} />
-                <div className="w-14 h-14 rounded-full bg-navy/10 flex items-center justify-center mb-4 text-2xl font-black text-navy">
-                  {member.name.charAt(0)}
-                </div>
+
+                {/* Avatar — dual photos, single photo, or initial fallback */}
+                {member.photos ? (
+                  <div className="flex -space-x-3 mb-4">
+                    {member.photos.map((p) => (
+                      // eslint-disable-next-line @next/next/no-img-element
+                      <img
+                        key={p.name}
+                        src={p.src}
+                        alt={p.name}
+                        className="w-14 h-14 rounded-full object-cover ring-2 ring-white"
+                      />
+                    ))}
+                  </div>
+                ) : member.photo ? (
+                  // eslint-disable-next-line @next/next/no-img-element
+                  <img
+                    src={member.photo}
+                    alt={member.name}
+                    className="w-14 h-14 rounded-full object-cover ring-2 ring-slate-100 mb-4"
+                    style={member.imgPosition ? { objectPosition: member.imgPosition } : undefined}
+                  />
+                ) : (
+                  <div className="w-14 h-14 rounded-full bg-navy/10 flex items-center justify-center mb-4 font-black text-navy text-lg">
+                    {member.initial}
+                  </div>
+                )}
+
                 <h3 className="font-bold text-navy text-lg mb-0.5">{member.name}</h3>
                 <p className="text-ember text-xs font-semibold uppercase tracking-wider mb-3">{member.role}</p>
                 <p className="text-slate-500 text-sm leading-relaxed">{member.bio}</p>
@@ -160,7 +232,7 @@ export default function AboutPage() {
                 {IDEAL_CLIENT.weWorkWith.map((item, i) => (
                   <li key={i} className="flex items-start gap-3">
                     <svg className="w-5 h-5 text-ember mt-0.5 shrink-0" fill="currentColor" viewBox="0 0 20 20">
-                      <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd"/>
+                      <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
                     </svg>
                     <span className="text-slate-600 text-sm">{item}</span>
                   </li>
@@ -174,7 +246,7 @@ export default function AboutPage() {
                 {IDEAL_CLIENT.weDontWorkWith.map((item, i) => (
                   <li key={i} className="flex items-start gap-3">
                     <svg className="w-5 h-5 text-slate-300 mt-0.5 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
-                      <path strokeLinecap="round" strokeLinejoin="round" d="M6 18L18 6M6 6l12 12"/>
+                      <path strokeLinecap="round" strokeLinejoin="round" d="M6 18L18 6M6 6l12 12" />
                     </svg>
                     <span className="text-slate-500 text-sm">{item}</span>
                   </li>

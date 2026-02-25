@@ -19,6 +19,7 @@ export default function Header() {
 
   useEffect(() => {
     const handleScroll = () => setScrolled(window.scrollY > 20)
+    handleScroll()
     window.addEventListener('scroll', handleScroll, { passive: true })
     return () => window.removeEventListener('scroll', handleScroll)
   }, [])
@@ -29,7 +30,7 @@ export default function Header() {
         'fixed top-0 left-0 right-0 z-40 transition-all duration-400',
         scrolled
           ? 'bg-navy-dark/96 backdrop-blur-xl shadow-2xl py-3 border-b border-white/6'
-          : 'bg-transparent py-5'
+          : 'bg-navy-dark/80 backdrop-blur-sm py-5'
       )}
     >
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -51,16 +52,13 @@ export default function Header() {
               className="flex items-center gap-2.5 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/50 rounded-md"
             >
               <Image
-                src="/brand/logo.png"
+                src="/brand/ur-logo.png"
                 alt="Untapped Revenue"
-                width={160}
-                height={40}
-                className="h-9 w-auto object-contain"
+                width={320}
+                height={64}
+                className="h-14 w-auto object-contain"
                 priority
               />
-              <span className="hidden sm:block text-white font-bold text-sm tracking-wide leading-tight">
-                Untapped<br />Revenue
-              </span>
             </Link>
           </motion.div>
 

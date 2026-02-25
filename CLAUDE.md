@@ -44,7 +44,7 @@ When building/rebuilding layouts or styles:
 ---
 
 ## Local Server + Puppeteer Screenshot Workflow
-- Always run the site on **http://localhost:3001** before screenshots.
+- Always run the site on **http://localhost:3002** before screenshots.
 - If this repo uses Next.js:
   - Start dev server: `npm run dev` (or `pnpm dev`)
 - If the repo contains `serve.mjs` (static preview tool), use it as instructed in that repo.
@@ -53,8 +53,8 @@ When building/rebuilding layouts or styles:
 Preferred workflow:
 - Use `screenshot.mjs` in the project root (create it if missing).
 - Command:
-  - `node screenshot.mjs http://localhost:3001`
-  - Optional label: `node screenshot.mjs http://localhost:3001 hero`
+  - `node screenshot.mjs http://localhost:3002`
+  - Optional label: `node screenshot.mjs http://localhost:3002 hero`
 - Save screenshots into: `./temporary screenshots/`
   - Use auto-incrementing filenames like `screenshot-1.png`, `screenshot-2.png` (never overwrite).
 

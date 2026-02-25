@@ -41,7 +41,7 @@ export default function Footer() {
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col lg:flex-row items-center justify-between gap-8">
           <div>
             <p className="text-ember text-sm font-bold uppercase tracking-[0.18em] mb-2">Ready when you are</p>
-            <h2 className="text-3xl sm:text-4xl font-black text-white leading-tight">
+            <h2 className="text-2xl sm:text-3xl lg:text-4xl font-black text-white leading-tight">
               Add 25+ members/month to your studio.
             </h2>
           </div>
@@ -71,11 +71,11 @@ export default function Footer() {
           >
             <Link href="/" className="inline-block mb-5">
               <Image
-                src="/brand/logo.png"
+                src="/brand/ur-logo.png"
                 alt="Untapped Revenue"
-                width={160}
-                height={40}
-                className="h-9 w-auto object-contain animate-float"
+                width={240}
+                height={60}
+                className="h-14 w-auto object-contain animate-float"
               />
             </Link>
             <p className="text-white/50 text-sm leading-relaxed max-w-sm mb-6">
@@ -83,7 +83,7 @@ export default function Footer() {
               $46.3M in revenue generated for 150+ studios in 17 months.
             </p>
             {/* Mini stats row */}
-            <div className="flex flex-wrap gap-5">
+            <div className="flex flex-wrap gap-4 sm:gap-5">
               {[
                 { value: '150+', label: 'Gyms Served' },
                 { value: '$46.3M', label: 'Generated' },
