@@ -1,4 +1,5 @@
 import type { Metadata } from 'next'
+import Image from 'next/image'
 import Container from '@/components/ui/Container'
 import Section from '@/components/ui/Section'
 import Badge from '@/components/ui/Badge'
@@ -90,7 +91,18 @@ export default function ResultsPage() {
                   <div className="bg-navy p-5 md:p-8 md:w-2/5 flex flex-col justify-between">
                     <div>
                       <Badge variant="ember" className="mb-3">{study.studioType}</Badge>
-                      <h3 className="text-white font-black text-2xl mb-1">{study.name}</h3>
+                      <div className="flex items-center gap-3 mb-1">
+                        {study.photo && (
+                          <Image
+                            src={study.photo}
+                            alt={study.name}
+                            width={52}
+                            height={52}
+                            className="rounded-full object-cover ring-2 ring-ember/40 shrink-0"
+                          />
+                        )}
+                        <h3 className="text-white font-black text-2xl leading-tight">{study.name}</h3>
+                      </div>
                       <p className="text-white/50 text-sm mb-4">{study.timeframe}</p>
                       <p className="text-ember font-bold text-xl leading-snug">{study.headline}</p>
                     </div>

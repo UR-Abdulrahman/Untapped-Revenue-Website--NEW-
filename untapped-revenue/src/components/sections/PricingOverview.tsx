@@ -29,13 +29,13 @@ export default function PricingOverview() {
         </SectionReveal>
 
         {/* Cards — popular card extends taller via lg:-mt-4 lg:-mb-4 */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 mb-10 lg:items-start">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 mb-10 lg:items-stretch">
           {SERVICE_TIERS.map((tier, i) => (
             <motion.div
               key={tier.id}
               className={`rounded-2xl relative overflow-hidden flex flex-col ${
                 tier.popular
-                  ? 'bg-linear-to-b from-ember to-[#c42f16] border-2 border-ember/60 shadow-2xl shadow-ember/30 lg:-mt-5 lg:mb-0'
+                  ? 'bg-linear-to-b from-ember to-[#c42f16] border-2 border-ember/60 shadow-2xl shadow-ember/30'
                   : 'bg-white/5 border border-white/10'
               }`}
               initial={{ opacity: 0, y: 50 }}
