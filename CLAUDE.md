@@ -13,7 +13,7 @@ Secondary goals:
 - Explain services clearly
 - Enable future content growth (simple blog)
 
----
+---            
 
 ## Skills to Use (IMPORTANT)
 Use these Claude Code skills throughout the build:
