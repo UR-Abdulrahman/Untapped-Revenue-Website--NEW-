@@ -6,6 +6,10 @@ const nextConfig: NextConfig = {
   turbopack: {
     root: path.join(__dirname),
   },
+  outputFileTracingIncludes: {
+    "/blog": ["./content/blog/**/*.mdx"],
+    "/blog/[slug]": ["./content/blog/**/*.mdx"],
+  },
 };
 
 export default nextConfig;
